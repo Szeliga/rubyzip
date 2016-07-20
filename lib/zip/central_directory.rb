@@ -113,6 +113,7 @@ module Zip
                                                       else
                                                         buf.read(comment_length)
                                                       end
+      buf.delete!("\x00")
       raise Error, 'Zip consistency problem while reading eocd structure' unless buf.size == 0
     end
 
